@@ -1,0 +1,26 @@
+{
+    "name": "scriptfusion/open-dash",
+    "description": "Open source Web-based dashboard for Unix systems.",
+    "authors": [
+        {
+            "name": "Bilge",
+            "email": "bilge@scriptfusion.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "ScriptFUSION\\OpenDash\\": "src"
+        }
+    },
+    "require": {
+        "php": ">=5.5",
+        "nikic/iter": "~1",
+        "symfony/process": "~2",
+        "eloquent/cosmos": "~2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*",
+        "mockery/mockery": "@dev",
+        "phpmd/phpmd": "*"
+    }
+}
