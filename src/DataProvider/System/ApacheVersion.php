@@ -1,16 +1,18 @@
 <?php
 namespace ScriptFUSION\OpenDash\DataProvider\System;
 
-use ScriptFUSION\OpenDash\Filter\CutFilter;
-use ScriptFUSION\OpenDash\Filter\LineFilter;
+use ScriptFUSION\OpenDash\Convert\Cut;
+use ScriptFUSION\OpenDash\Convert\Line;
+use ScriptFUSION\OpenDash\Convert\Trim;
 
 class ApacheVersion extends SystemDataProvider {
     public function __construct() {
         $this->command = 'apachectl -v';
 
-        $this->getFilterChain()->addFilters([
-            new LineFilter,
-            new CutFilter(2, ':'),
+        $this->getConversionChain()->addConverters([
+            new Line,
+            new Cut(2, ':'),
+            new Trim,
         ]);
     }
 }

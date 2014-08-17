@@ -1,23 +1,12 @@
 <?php
 namespace ScriptFUSION\OpenDash\DataProvider;
 
-use ScriptFUSION\OpenDash\Filter\TrimFilterChainTrait;
-
 /**
- * Provides data.
+ * Defines a mechanism for providing data.
  */
-abstract class DataProvider {
-    use TrimFilterChainTrait;
-
+interface DataProvider {
     /**
      * @return Data
      */
-    abstract public function provideData();
-
-    /**
-     * @return string Data.
-     */
-    public function __toString() {
-        return "{$this->provideData()}";
-    }
+    public function provideData();
 }

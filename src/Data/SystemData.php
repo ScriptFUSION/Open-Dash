@@ -1,9 +1,7 @@
 <?php
-namespace ScriptFUSION\OpenDash\DataProvider\System;
+namespace ScriptFUSION\OpenDash\Data;
 
-use ScriptFUSION\OpenDash\DataProvider\Data;
-
-class SystemData extends Data {
+class SystemData extends StringData {
     private $code;
 
     public function __construct($data, $error = '', $code = 0) {
@@ -16,7 +14,7 @@ class SystemData extends Data {
         return $this->code;
     }
 
-    public function isSuccess() {
+    public function isValid() {
         return $this->code === 0;
     }
 }

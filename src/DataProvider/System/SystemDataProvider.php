@@ -1,17 +1,28 @@
 <?php
 namespace ScriptFUSION\OpenDash\DataProvider\System;
 
+use ScriptFUSION\OpenDash\Convert\ConversionChain;
+use ScriptFUSION\OpenDash\Data\DataFactory;
+use ScriptFUSION\OpenDash\Data\SystemData;
 use ScriptFUSION\OpenDash\DataProvider\DataProvider;
 use Symfony\Component\Process\Process;
 
-abstract class SystemDataProvider extends DataProvider {
+abstract class SystemDataProvider implements DataProvider {
     protected
         $command,
         $input
     ;
 
+    private $conversionChain;
+
+    protected function getConversionChain() {
+        return $this->conversionChain ?: $this->conversionChain = new ConversionChain;
+    }
+
     public function provideData() {
-        return $this->getFilterChain()->filter($this->execute());
+        $data = $this->execute();
+
+        return DataFactory::createData($this->getConversionChain()->convert($data), $data->getError());
     }
 
     /**

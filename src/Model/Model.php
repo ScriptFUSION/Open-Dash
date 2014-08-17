@@ -31,7 +31,7 @@ abstract class Model implements \IteratorAggregate, \Countable, \JsonSerializabl
     public function jsonSerialize() {
         return array_map(
             function (DataProvider $dataProvider) {
-                return "$dataProvider";
+                return $dataProvider->provideData();
             },
             $this->dataProviders
         );

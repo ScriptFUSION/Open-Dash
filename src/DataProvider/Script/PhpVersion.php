@@ -1,10 +1,10 @@
 <?php
 namespace ScriptFUSION\OpenDash\DataProvider\Script;
 
-use ScriptFUSION\OpenDash\DataProvider\Data;
+use ScriptFUSION\OpenDash\Data\StringData;
 
 class PhpVersion extends ScriptDataProvider {
     public function run() {
-        return new Data(PHP_VERSION);
+        return new StringData(PHP_VERSION);
     }
 }
