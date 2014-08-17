@@ -1,8 +1,8 @@
 <?php
 use ScriptFUSION\OpenDash\Convert\ConversionChain;
 
-class FilterChainTest extends PHPUnit_Framework_TestCase {
-    public function testFilterChain() {
+class ConversionChainTest extends PHPUnit_Framework_TestCase {
+    public function testConvert() {
         $chain = (new ConversionChain)->addConverters([
             function() { return 'foo'; },
             function($data) { return "${data}bar"; }

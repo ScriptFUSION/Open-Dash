@@ -19,6 +19,12 @@ class Cut implements Convert {
      * @return string
      */
     public function convertString($string) {
-        return explode($this->delimiter, $string)[$this->fields - 1];
+        $parts = explode($this->delimiter, $string);
+        $field = $this->fields - 1;
+
+        if (isset($parts[$field]))
+            return $parts[$field];
+
+        return '';
     }
 }

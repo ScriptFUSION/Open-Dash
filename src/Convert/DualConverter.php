@@ -25,10 +25,10 @@ trait DualConverter {
     abstract public function convertString($string);
 
     /**
-     * @param \Traversable $items
+     * @param \Traversable|array $items
      * @return \Iterator
      */
-    public function convertCollection(\Traversable $items) {
+    public function convertCollection($items) {
         return \iter\map([$this, 'convertString'], $items);
     }
 }

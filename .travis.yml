@@ -5,11 +5,15 @@ php:
   - 5.6
 
 install:
-  - composer --no-interaction install
+  - composer -n require satooshi/php-coveralls:dev-master
 
 script:
-  - vendor/bin/phpunit --coverage-clover=clover.xml test
+  - vendor/bin/phpunit --coverage-clover=build/logs/clover.xml test
 
 after_script:
+  # Scrutinizer coverage.
   - wget http://scrutinizer-ci.com/ocular.phar
-  - php ocular.phar code-coverage:upload --format=php-clover clover.xml
+  - php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml
+
+  # Coveralls coverage.
+  - vendor/bin/coveralls
