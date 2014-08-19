@@ -1,7 +1,7 @@
 Open Dash
 =========
 
-[![Version][Version image]]()
+[![Version][Version image]][Releases]
 [![Build Status][Build image]][Build]
 [![Code Coverage][Coverage image]][Coverage]
 [![Scrutinizer Code Quality][Quality image]][Quality]
@@ -12,6 +12,7 @@ Architecture
 ------------
 ![Diagram](https://raw.githubusercontent.com/ScriptFUSION/Open-Dash/master/diagrams/Open%20Dash.png)
 
+  [Releases]: https://github.com/ScriptFUSION/Open-Dash/releases
   [Version image]: http://img.shields.io/github/tag/ScriptFUSION/Open-Dash.svg "Latest version"
   [Build]: http://travis-ci.org/ScriptFUSION/Open-Dash
   [Build image]: http://img.shields.io/travis/ScriptFUSION/Open-Dash.svg "Build status"
