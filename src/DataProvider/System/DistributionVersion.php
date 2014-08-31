@@ -8,7 +8,7 @@ use ScriptFUSION\OpenDash\Convert\Trim;
 
 class DistributionVersion extends SystemDataProvider {
     public function __construct() {
-        $this->command = 'lsb_release -a';
+        $this->command = 'lsb_release -idrc';
 
         $this->getConversionChain()->addConverters([
             new Lines,

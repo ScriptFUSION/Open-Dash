@@ -2,7 +2,7 @@
 namespace ScriptFUSION\OpenDash\Convert;
 
 class KeyValuePair implements Convert {
-    use DualConverter { convert as defaultConvert; }
+    use DualConverter { convert as convertDataOrCollection; }
 
     /**
      * @param mixed $data
@@ -12,10 +12,13 @@ class KeyValuePair implements Convert {
         if (is_array($data) && count($data) === 2)
             return $this->convertData($data);
 
-        return $this->defaultConvert($data);
+        return $this->convertDataOrCollection($data);
     }
 
     /**
+     * Converts the specified tuple to a key and value array using the first
+     * value as the key and the second value as the value.
+     *
      * @param array $tuple [key, value]
      * @return array [key => value]
      */

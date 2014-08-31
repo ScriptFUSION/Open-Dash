@@ -8,5 +8,8 @@ class DistributionVersionTest extends PHPUnit_Framework_TestCase {
         $this->assertTrue($data->isValid());
         $this->assertGreaterThan(0, count($data));
         $this->assertArrayHasKey('Distributor ID', $data);
+        $this->assertArrayHasKey('Description', $data);
+        $this->assertArrayHasKey('Release', $data);
+        $this->assertArrayHasKey('Codename', $data);
     }
 }
