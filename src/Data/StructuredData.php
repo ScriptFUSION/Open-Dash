@@ -1,6 +1,8 @@
 <?php
 namespace ScriptFUSION\OpenDash\Data;
 
+use ScriptFUSION\OpenDash\Iterator\NestedIteratorIterator;
+
 class StructuredData extends \ArrayObject implements Data {
     private $error;
 
@@ -9,7 +11,13 @@ class StructuredData extends \ArrayObject implements Data {
      * @param string $error
      */
     public function __construct($collection, $error = '') {
-        $collection instanceof \Traversable && $collection = iterator_to_array($collection);
+        // Render nested collections.
+        $collection instanceof \Traversable &&
+            $collection = iterator_to_array(
+                new \RecursiveIteratorIterator(new NestedIteratorIterator($collection))
+            );
+
+        // Wrap scalars in array.
         !is_array($collection) && $collection = [$collection];
 
         parent::__construct($collection);

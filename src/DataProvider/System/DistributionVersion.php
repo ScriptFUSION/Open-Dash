@@ -1,7 +1,9 @@
 <?php
 namespace ScriptFUSION\OpenDash\DataProvider\System;
 
+use ScriptFUSION\OpenDash\Convert\KeyValuePair;
 use ScriptFUSION\OpenDash\Convert\Lines;
+use ScriptFUSION\OpenDash\Convert\Split;
 use ScriptFUSION\OpenDash\Convert\Trim;
 
 class DistributionVersion extends SystemDataProvider {
@@ -10,13 +12,9 @@ class DistributionVersion extends SystemDataProvider {
 
         $this->getConversionChain()->addConverters([
             new Lines,
-            function(\Traversable $lines) {
-                foreach ($lines as $line) {
-                    list($key, $value) = explode(':', $line, 2);
-                    yield $key => $value;
-                }
-            },
-            new Trim
+            new Split(':', 2),
+            new KeyValuePair,
+            new Trim,
         ]);
     }
 }

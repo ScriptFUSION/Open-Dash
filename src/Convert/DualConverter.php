@@ -15,20 +15,20 @@ trait DualConverter {
         if ($data instanceof \Traversable || is_array($data))
             return $this->convertCollection($data);
 
-        return $this->convertString("$data");
+        return $this->convertData($data);
     }
 
     /**
-     * @param string $string
+     * @param mixed $data
      * @return mixed
      */
-    abstract public function convertString($string);
+    abstract public function convertData($data);
 
     /**
      * @param \Traversable|array $items
      * @return \Iterator
      */
     public function convertCollection($items) {
-        return \iter\map([$this, 'convertString'], $items);
+        return \iter\map([$this, 'convert'], $items);
     }
 }

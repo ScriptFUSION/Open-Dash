@@ -5,10 +5,10 @@ class Trim implements Convert {
     use DualConverter;
 
     /**
-     * @param string $string
+     * @param string $data
      * @return string
      */
-    public function convertString($string) {
-        return trim($string);
+    public function convertData($data) {
+        return trim("$data");
     }
 }

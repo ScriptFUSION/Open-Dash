@@ -26,7 +26,7 @@ class CommandParser {
                     #Only even quantities of backslahes may end the argument.
                     (?<arg>.*?(?<!\\\\)(?:\\\\\\\\)*+)
                 #Closing quote must match opening quote.
-                \k{quote}
+                \k<quote>
                 |
                 #Unquoted form. Argument may not contain whitespace or pipes.
                 (?<arg>[^\s|]++)

@@ -5,15 +5,15 @@ class ConversionChain extends \SplQueue implements Convert {
     use DualConverter;
 
     /**
-     * @param string $string
+     * @param mixed $data
      * @return mixed
      */
-    public function convertString($string) {
+    public function convertData($data) {
         return \iter\reduce(
-            function ($string, callable $filter) {
-                return $filter($string);
+            function ($data, callable $filter) {
+                return $filter($data);
             },
-            $this, "$string"
+            $this, $data
         );
     }
 

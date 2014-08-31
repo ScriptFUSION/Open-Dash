@@ -5,10 +5,10 @@ class Line implements Convert {
     use DualConverter;
 
     /**
-     * @param string $string
+     * @param string $data
      * @return string
      */
-    public function convertString($string) {
-        return strtok($string, PHP_EOL);
+    public function convertData($data) {
+        return strtok("$data", PHP_EOL);
     }
 }

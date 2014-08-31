@@ -15,11 +15,11 @@ class Cut implements Convert {
     }
 
     /**
-     * @param string $string
+     * @param string $data
      * @return string
      */
-    public function convertString($string) {
-        $parts = explode($this->delimiter, $string);
+    public function convertData($data) {
+        $parts = explode($this->delimiter, "$data");
         $field = $this->fields - 1;
 
         if (isset($parts[$field]))
