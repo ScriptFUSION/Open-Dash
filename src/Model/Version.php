@@ -6,7 +6,7 @@ use ScriptFUSION\OpenDash\DataProvider\System\ApacheVersion;
 use ScriptFUSION\OpenDash\DataProvider\System\DistributionVersion;
 use ScriptFUSION\OpenDash\DataProvider\System\KernelVersion;
 
-class VersionModel extends Model {
+class Version extends Model {
     public function __construct() {
         $this->addDataProviders([
             new KernelVersion,
